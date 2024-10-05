@@ -23,13 +23,21 @@ const teacherCard = ({ name, surname, languages, lesson_info, avatar_url, condit
   </div > `
 };
 
-const data = await getCollection();
-
-const list = data.map(teacherCard).join('');
-
 const container = document.querySelector('.js-container');
 
-container.insertAdjacentHTML('afterbegin', list);
+async function renderTeachers() {
+  const data = await getCollection();
+  const list = data.map(teacherCard).join('');
+  container.insertAdjacentHTML('afterbegin', list);
+};
+
+renderTeachers();
+
+
+
+
+
+
 
 
 
